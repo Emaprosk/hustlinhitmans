@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.list-container {
+    position: relative;
+}
+
+.more-button {
+    background-color: #f7910c;
+    box-shadow: 0px 0px 0px 4px rgba(226, 147, 50, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+.more-button:hover,
+.more-button:focus {
+    box-shadow: 0px 0px 0px 8px rgba(248, 174, 27, 0.3);
+    background-color: #f7910c;
+}
+
+.more-button-list-item {
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease-in;
+}
+.more-button-list-item:hover {
+    color: #fcb205;
+    background-color: rgb(0, 0, 0);
+}
+.more-button-list-item:focus {
+    color: none;
+    background-color: transparent;
+}
+
+.more-button-list-item span {
+    display: inline-block;
+    line-height: 15px;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+}

@@ -1,0 +1,35 @@
+.cardCat {
+    width: 20vh;
+    height: 23vh;
+    background-color: #212121;
+    box-shadow: 15px 15px 30px #191919, -15px -15px 30px #292929;
+    transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+        transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.cardCat:hover {
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    transform: scale(1.05);
+}
+
+#divCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    grid-auto-rows: 1fr;
+}
+
+.cInput {
+    color: #ffffff;
+    background-color: #191919;
+    margin-bottom: 5vh;
+}
+
+.btnCard {
+    width: 70px;
+    height: 40px;
+    margin-top: 40px;
+}

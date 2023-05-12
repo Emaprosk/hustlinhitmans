@@ -1,0 +1,25 @@
+.formPerfil {
+    display: flex;
+    flex-direction: column;
+    background: #191c29;
+    color: rgb(129, 163, 206);
+    transition: color 1s;
+    margin-top: 10vh;
+    display: flex;
+    border: 3px solid rgb(230, 135, 10);
+    border-radius: 10px;
+    padding: 5vh;
+}
+
+.formPerfil:hover {
+    color: rgb(243, 220, 15);
+    transition: color 1s;
+}
+
+.cardPosPerfil {
+    display: flex;
+    position: fixed;
+    bottom: 10vh;
+    right: 10vh;
+    z-index: 1000;
+}

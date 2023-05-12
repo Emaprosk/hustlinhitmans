@@ -1,0 +1,14 @@
+.dimNav {
+    opacity: 80%;
+    margin-bottom: 10vh;
+}
+
+.margenIzq {
+    margin-left: 15vh;
+}
+
+.brand {
+    position: relative;
+    scale: 0.9;
+    right: 3vh;
+}

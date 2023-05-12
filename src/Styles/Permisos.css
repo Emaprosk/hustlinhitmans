@@ -1,0 +1,20 @@
+.posPublicar {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.posComentar {
+    display: flex;
+    position: absolute;
+    top: 65px;
+    right: 20px;
+}
+
+.posEditar {
+    display: flex;
+    position: absolute;
+    top: 90px;
+    right: 20px;
+}
