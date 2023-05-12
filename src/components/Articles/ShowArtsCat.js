@@ -1,28 +1,24 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import { IsLogged } from "../../controllers/isLogged";
-
-const URI = "http://localhost:3050/articles/";
+import { GetAllArticles } from "../../Hooks/HooksArticle";
 
 const ShowArtsCat = () => {
     const [articles, setArticles] = useState([]);
 
-    const { id } = useParams();
-
     useEffect(() => {
-        getArticlesById();
+        getArticles();
     }, []);
 
-    const getArticlesById = async () => {
+    const getArticles = async () => {
         const token = IsLogged();
         if (token === null) {
             console.log("Need authorization");
         } else {
-            const res = await axios.get(URI + id);
-            setArticles(res.data);
-            console.log(res.data);
+            GetAllArticles().then((articulos) => {
+                setArticles(articulos);
+            });
         }
     };
 
