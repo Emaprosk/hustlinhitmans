@@ -9,6 +9,16 @@
 
 .brand {
     position: relative;
-    scale: 0.9;
-    right: 3vh;
+    scale: 1;
+}
+.brand:hover {
+    color: orange;
+}
+
+.videosNav {
+    max-height: 140px;
+}
+
+.videosNav:hover {
+    color: orange;
 }

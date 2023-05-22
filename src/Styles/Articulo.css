@@ -1,11 +1,14 @@
 .divArticle {
     display: flexbox;
-    padding: 5vh;
 }
 
-.labelArticle {
-    width: 100%;
-    max-width: 70%;
-    justify-content: center;
-    align-items: center;
+.reactQuill {
+    background-color: black;
+    opacity: 90%;
+    border-radius: 10px;
+}
+
+.divContent {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }

@@ -34,7 +34,7 @@ const Perfil = () => {
     useEffect(() => {
         const user = getItemUser();
         if (user) {
-            GetUserApi(user.id).then((user) => {
+            GetUserApi(user.password).then((user) => {
                 setUsername(user.username);
                 setEmail(user.email);
                 setCharacterName(user.charactername);

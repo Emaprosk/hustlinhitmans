@@ -1,79 +1,75 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Table from "react-bootstrap/Table";
-import { IsLogged } from "../../controllers/isLogged";
+import { Link, useParams } from "react-router-dom";
+
+//import { IsLogged } from "../../controllers/isLogged";
 import { GetAllArticles } from "../../Hooks/HooksArticle";
+import { Col, ListGroup, ListGroupItem } from "react-bootstrap";
 
 const ShowArtsCat = () => {
     const [articles, setArticles] = useState([]);
 
-    useEffect(() => {
-        getArticles();
-    }, []);
+    const { category } = useParams();
 
+    useEffect(() => {
+        GetAllArticles().then((articulos) => {
+            setArticles(articulos.filter((arti) => arti.category === category));
+        });
+    }, [category]);
+    /*
     const getArticles = async () => {
+        
         const token = IsLogged();
         if (token === null) {
             console.log("Need authorization");
         } else {
-            GetAllArticles().then((articulos) => {
-                setArticles(articulos);
-            });
         }
+        GetAllArticles().then((articulos) => {
+            setArticles(articulos.filter((arti) => arti.category === category));
+        });
+    };*/
+    const renderList = () => {
+        return (
+            <ListGroup variant="flush">
+                {articles.map((article) => (
+                    <ListGroupItem key={article.id} className="list-group">
+                        <div className="contentListGroup">
+                            <Link
+                                to={"/article/" + article.id}
+                                className="linkArticle contentListGroup"
+                            >
+                                <Col>
+                                    <h5>{article.tittle}</h5>
+                                </Col>
+                                <Col>
+                                    <p>{article.category}</p>
+                                </Col>
+                                <Col>
+                                    <p>{article.createdBy}</p>
+                                </Col>
+                                <Col>
+                                    <p>{article.createdAt}</p>
+                                </Col>
+                                <Col>
+                                    <p>{article.updatedAt}</p>
+                                </Col>
+                            </Link>
+                        </div>
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
+        );
+    };
+
+    const renderNodata = () => {
+        return <h4>No se encontraron datos</h4>;
     };
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col">
-                    <Link
-                        to={"/newarticle"}
-                        className="btn btn-primary mt-2 mb-2"
-                    >
-                        Crear
-                    </Link>
-
-                    <Table
-                        bordered={false}
-                        hover={true}
-                        responsive="xl"
-                        className="table"
-                        variant="dark"
-                        size="xl"
-                    >
-                        <thead className="table-primary">
-                            <tr>
-                                <th>Titulo</th>
-                                <th>Categoria</th>
-                                <th>Creado por</th>
-                                <th>Created Date</th>
-                                <th>Updated Date</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody className="table-primary">
-                            {articles.map((article) => (
-                                <tr key={article.id}>
-                                    <td>{article.tittle}</td>
-                                    <td>{article.category}</td>
-                                    <td>{article.createdBy}</td>
-                                    <td>{article.createdAt}</td>
-                                    <td>{article.updatedAt}</td>
-
-                                    <td>
-                                        <Link
-                                            to={"/article/" + article.id}
-                                            className="btn btn-secondary"
-                                        >
-                                            Open
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
-                </div>
-            </div>
+            <Link to={"/newarticle"} className="btn btn-primary mt-2 mb-2">
+                Crear
+            </Link>
+            {articles.length === 0 ? renderNodata() : renderList()}
         </div>
     );
 };

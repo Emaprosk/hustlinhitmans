@@ -1,0 +1,32 @@
+.list-group {
+    color: white;
+    background-color: black;
+    padding: 1px;
+    border: 2px solid orange;
+    opacity: 90%;
+    border-radius: 10px;
+    display: flex;
+}
+
+.contentListGroup {
+    display: flex;
+    align-items: center;
+}
+
+.divDisplay {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowConfig {
+    display: flex;
+}
+.linkArticle {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+.linkArticle:hover {
+    text-decoration: none;
+    color: orange;
+}

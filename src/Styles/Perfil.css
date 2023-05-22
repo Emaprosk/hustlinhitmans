@@ -1,7 +1,7 @@
 .formPerfil {
     display: flex;
     flex-direction: column;
-    background: #191c29;
+    background-color: rgb(0, 0, 0, 0.8);
     color: rgb(129, 163, 206);
     transition: color 1s;
     margin-top: 10vh;

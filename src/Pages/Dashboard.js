@@ -5,7 +5,6 @@ import { Container } from "react-bootstrap";
 import CompShowArticle from "../components/Articles/ShowArticle";
 import AddCategory from "../components/Categoria/AddCategory";
 import ShowCatAdmin from "../components/Categoria/ShowCatAdmin";
-import Options from "../components/OptionsTool";
 
 const Dashboard = () => {
     const [content, setContent] = useState("");
@@ -37,7 +36,6 @@ const Dashboard = () => {
                     <>
                         <div className="divDefault">
                             <h1>Dashboard</h1>
-                            <Options />
                         </div>
                     </>
                 );

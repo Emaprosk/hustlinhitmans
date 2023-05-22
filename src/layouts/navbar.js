@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import VideoPlayer from "../components/Play/videoplay";
 import HomePlayer from "../components/Play/homePlay";
@@ -39,7 +39,12 @@ const Navv = () => {
 
     const renderLogOut = () => {
         return (
-            <Nav.Link onClick={handleLogOut} as={Link} to={"/home"}>
+            <Nav.Link
+                className="videosNav"
+                onClick={handleLogOut}
+                as={Link}
+                to={"/home"}
+            >
                 {showComponent ? <CloseSesionPlayer /> : <h5>Cerrar Sesion</h5>}
             </Nav.Link>
         );
@@ -47,7 +52,11 @@ const Navv = () => {
 
     const renderPerfil = () => {
         return (
-            <Nav.Link as={Link} to={"/perfil/" + isLogged.username}>
+            <Nav.Link
+                className="videosNav"
+                as={Link}
+                to={"/perfil/" + isLogged.username}
+            >
                 {showComponent ? <PerfilPlayer /> : <h5>Perfil</h5>}
             </Nav.Link>
         );
@@ -77,36 +86,30 @@ const Navv = () => {
                 expand="xl"
                 variant="dark"
             >
-                <Container>
-                    <Navbar.Brand className="brand" as={Link} to="/">
-                        {showComponent ? (
-                            <VideoPlayer />
-                        ) : (
-                            <h5>Hustlin Hitmans</h5>
-                        )}
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav" className="">
-                        <Nav className="mx-auto ">
-                            <Nav.Link className="" as={Link} to="/">
-                                {showComponent ? <HomePlayer /> : <h5>Home</h5>}
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="/foro">
-                                {showComponent ? <ForoPlayer /> : <h5>Foro</h5>}
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="/redes">
-                                {showComponent ? (
-                                    <RedesPlayer />
-                                ) : (
-                                    <h5>Dashboard</h5>
-                                )}
-                            </Nav.Link>
-                            {isLogged ? renderPerfil() : null}
-                        </Nav>
+                <Navbar.Brand className="brand" as={Link} to="/">
+                    {showComponent ? <VideoPlayer /> : <h5>Hustlin Hitmans</h5>}
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className="">
+                    <Nav className="mx-auto ">
+                        <Nav.Link className="videosNav" as={Link} to="/">
+                            {showComponent ? <HomePlayer /> : <h5>Home</h5>}
+                        </Nav.Link>
+                        <Nav.Link className="videosNav" as={Link} to="/foro">
+                            {showComponent ? <ForoPlayer /> : <h5>Foro</h5>}
+                        </Nav.Link>
+                        <Nav.Link className="videosNav" as={Link} to="/redes">
+                            {showComponent ? (
+                                <RedesPlayer />
+                            ) : (
+                                <h5>Dashboard</h5>
+                            )}
+                        </Nav.Link>
+                        {isLogged ? renderPerfil() : null}
+                    </Nav>
 
-                        {isLogged ? renderLogOut() : renderLogIn()}
-                    </Navbar.Collapse>
-                </Container>
+                    {isLogged ? renderLogOut() : renderLogIn()}
+                </Navbar.Collapse>
             </Navbar>
             <section>
                 <Outlet></Outlet>

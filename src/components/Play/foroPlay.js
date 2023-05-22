@@ -10,7 +10,7 @@ const ForoPlayer = () => {
         <div>
             <ReactPlayer
                 width={200}
-                height={200}
+                height={"auto"}
                 ref={playerRef}
                 url={video}
                 playing={playing}

@@ -6,8 +6,8 @@ const VideoPlayer = () => {
     return (
         <>
             <ReactPlayer
-                width={300}
-                height={300}
+                width={250}
+                height={"auto"}
                 url={video}
                 playing
                 muted

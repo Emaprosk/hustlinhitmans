@@ -53,7 +53,7 @@ function App() {
                                 element={<CompEditArticle />}
                             />
                             <Route
-                                path="/categoria/:id"
+                                path="/categoria/:category"
                                 element={<ShowArtCat />}
                             />
                             <Route path="dashboard" element={<Dashboard />} />

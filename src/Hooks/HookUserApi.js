@@ -4,9 +4,11 @@ import { toastSuccess, toastWarning } from "../components/Alerts/Tostadas";
 const URI = "http://localhost:3050/users/";
 const URI2 = "http://localhost:3050/log/";
 
-export const GetUserApi = async (id) => {
+export const GetUserApi = async (token) => {
     try {
-        const res = await axios.get(URI + id);
+        const res = await axios.post(URI2 + "gut", {
+            token: token,
+        });
         return res.data;
     } catch (error) {
         console.error(error);

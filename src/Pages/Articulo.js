@@ -23,15 +23,31 @@ const Article = () => {
     return (
         <Container>
             <div className="divArticle">
-                <input type={"text"} disabled value={title}></input>
-                <ReactQuill
-                    theme="bubble"
-                    id="text-area"
-                    className="form-control"
-                    value={content}
-                    readOnly
-                ></ReactQuill>
-                <input type={"text"} disabled value={createdBy}></input>
+                <div className="divTitle">
+                    <input
+                        className="reactQuill"
+                        type={"text"}
+                        disabled
+                        value={title}
+                    ></input>
+                </div>
+                <div className="divContent">
+                    <ReactQuill
+                        theme="bubble"
+                        id="text-area"
+                        className="reactQuill"
+                        value={content}
+                        readOnly
+                    ></ReactQuill>
+                </div>
+                <div className="divCreator">
+                    <input
+                        className="reactQuill"
+                        type={"text"}
+                        disabled
+                        value={createdBy}
+                    ></input>
+                </div>
             </div>
         </Container>
     );

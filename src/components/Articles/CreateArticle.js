@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import TextArea from "./Toolbar";
 import "../../Styles/Articulo.css";
 import { getItemUser } from "../../Hooks/HookUserStorage";
+import { toastInfo } from "../Alerts/Tostadas";
 
 //import "react-quill/dist/quill.snow.css";
 
@@ -20,14 +21,21 @@ const CompCreateArticle = () => {
 
     const store = async (e) => {
         e.preventDefault();
-        axios.post(URI, {
-            tittle: title,
-            contenido: contenido,
-            category: category,
-            createdBy: createdBy,
-        });
-
-        navigate("/foro");
+        if (category.length === 0) {
+            toastInfo("Debe seleccionar categoria");
+        } else {
+            try {
+                axios.post(URI, {
+                    tittle: title,
+                    contenido: contenido,
+                    category: category,
+                    createdBy: createdBy,
+                });
+                navigate("/foro");
+            } catch (error) {
+                console.error(error);
+            }
+        }
     };
     // continuar aca con el select options
 
@@ -79,7 +87,7 @@ const CompCreateArticle = () => {
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                     >
-                        <option value="">Selecciona una opción</option>
+                        <option value={null}>-</option>
                         {categorias.map((c) => (
                             <option key={c.id} value={c.category}>
                                 {c.category}

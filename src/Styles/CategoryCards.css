@@ -33,3 +33,13 @@
     height: 40px;
     margin-top: 40px;
 }
+
+.linkCard {
+    text-decoration: none;
+    color: white;
+}
+.linkCard:hover {
+    text-decoration: none;
+    transition: 1s ease;
+    color: yellow;
+}
