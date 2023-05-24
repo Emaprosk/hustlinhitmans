@@ -17,6 +17,16 @@ import Footer from "./Footer";
 import Tostada from "./components/Alerts/Toast";
 import Dashboard from "./Pages/Dashboard";
 import ShowArtCat from "./components/Articles/ShowArtsCat";
+/*import { useEffect, useState } from "react";
+import { getItemUser } from "./Hooks/HookUserStorage";
+const [isLogged, setIsLogged] = useState(null);
+
+    useEffect(() => {
+        const user = getItemUser();
+        if (user !== null) {
+            setIsLogged(user);
+        }
+    });*/
 
 function App() {
     return (
@@ -27,14 +37,12 @@ function App() {
                         <Route path="/" element={<Navv />}>
                             <Route index element={<Home />} />
                             <Route path="/home" element={<Home />} />
-                            <Route path="redes" element={<Dashboard />} />
                             <Route path="foro" element={<Foro />} />
                             <Route path="login" element={<Login />} />;
                             <Route
                                 path="/perfil/:username"
                                 element={<Perfil />}
                             />
-                            ;
                             <Route
                                 path="/register"
                                 element={<CompCreateUser />}

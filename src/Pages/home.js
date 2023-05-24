@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <Container className={"containerHome"}>
-                <h1>Categorias</h1>
+                <h1>Novedades</h1>
                 <div>
                     <MostrarCategorias />
                 </div>

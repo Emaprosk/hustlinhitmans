@@ -1,9 +1,9 @@
 import { Navbar, Nav } from "react-bootstrap";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import VideoPlayer from "../components/Play/videoplay";
 import HomePlayer from "../components/Play/homePlay";
 import ForoPlayer from "../components/Play/foroPlay";
-import RedesPlayer from "../components/Play/redesPlay";
+
 import PerfilPlayer from "../components/Play/perfilPlay";
 import InicSesionPlayer from "../components/Play/inicSesionPlay";
 import CloseSesionPlayer from "../components/Play/closeSesionPlay";
@@ -14,7 +14,6 @@ import { destroySessions, getItemUser } from "../Hooks/HookUserStorage";
 const Navv = () => {
     const [isLogged, setIsLogged] = useState(null);
     const [showComponent, setShowComponent] = useState(false);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const user = getItemUser();
@@ -26,7 +25,7 @@ const Navv = () => {
     const handleLogOut = () => {
         setIsLogged(null);
         destroySessions();
-        navigate("/");
+        //navigate("/");
     };
 
     const renderLogIn = () => {
@@ -46,18 +45,6 @@ const Navv = () => {
                 to={"/home"}
             >
                 {showComponent ? <CloseSesionPlayer /> : <h5>Cerrar Sesion</h5>}
-            </Nav.Link>
-        );
-    };
-
-    const renderPerfil = () => {
-        return (
-            <Nav.Link
-                className="videosNav"
-                as={Link}
-                to={"/perfil/" + isLogged.username}
-            >
-                {showComponent ? <PerfilPlayer /> : <h5>Perfil</h5>}
             </Nav.Link>
         );
     };
@@ -98,16 +85,19 @@ const Navv = () => {
                         <Nav.Link className="videosNav" as={Link} to="/foro">
                             {showComponent ? <ForoPlayer /> : <h5>Foro</h5>}
                         </Nav.Link>
-                        <Nav.Link className="videosNav" as={Link} to="/redes">
-                            {showComponent ? (
-                                <RedesPlayer />
-                            ) : (
-                                <h5>Dashboard</h5>
-                            )}
-                        </Nav.Link>
-                        {isLogged ? renderPerfil() : null}
-                    </Nav>
 
+                        <Nav.Link
+                            className="videosNav"
+                            as={Link}
+                            to={
+                                isLogged
+                                    ? "/perfil/" + isLogged.username
+                                    : "/login"
+                            }
+                        >
+                            {showComponent ? <PerfilPlayer /> : <h5>Perfil</h5>}
+                        </Nav.Link>
+                    </Nav>
                     {isLogged ? renderLogOut() : renderLogIn()}
                 </Navbar.Collapse>
             </Navbar>

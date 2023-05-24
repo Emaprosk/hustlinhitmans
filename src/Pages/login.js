@@ -25,7 +25,6 @@ const Login = () => {
                     "loggedUserApp",
                     JSON.stringify(user)
                 );
-
                 navigate("./home");
                 window.location.reload();
             }

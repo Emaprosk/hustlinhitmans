@@ -10,5 +10,5 @@ export const getItemUser = () => {
 
 export const destroySessions = () => {
     window.localStorage.removeItem("loggedUserApp");
-    window.location.reload();
+    //window.location.reload();
 };

@@ -10,6 +10,7 @@ const Article = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [createdBy, setCreadtedBy] = useState("");
+
     const { id } = useParams();
 
     useEffect(() => {
