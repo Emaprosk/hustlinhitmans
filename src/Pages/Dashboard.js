@@ -5,7 +5,6 @@ import { Card, Container } from "react-bootstrap";
 import CompShowArticle from "../components/Articles/ShowArticle";
 import AddCategory from "../components/Categoria/AddCategory";
 import ShowCatAdmin from "../components/Categoria/ShowCatAdmin";
-import CardInfo from "../components/CardInfo";
 
 const Dashboard = () => {
     const [content, setContent] = useState("");
