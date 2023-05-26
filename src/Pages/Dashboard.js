@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../Styles/Dashboard.css";
 import CompCreateArticle from "../components/Articles/CreateArticle";
-import { Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import CompShowArticle from "../components/Articles/ShowArticle";
 import AddCategory from "../components/Categoria/AddCategory";
 import ShowCatAdmin from "../components/Categoria/ShowCatAdmin";
+import CardInfo from "../components/CardInfo";
 
 const Dashboard = () => {
     const [content, setContent] = useState("");
@@ -79,6 +80,45 @@ const Dashboard = () => {
                         </li>
                     </ul>
                 </nav>
+
+                <div className="dashboardPanel">
+                    <Card className="justify-content-md-center dashboardCard">
+                        <Card.Body>
+                            <Card.Title>Ultimos Articulos</Card.Title>
+                            <Card.Text>
+                                "Lista de los ultimos articulos publicados"
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card className="justify-content-md-center dashboardCard">
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+                            <Card.Text></Card.Text>
+                        </Card.Body>
+                    </Card>
+
+                    <Card className="justify-content-md-center dashboardCard">
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+                            <Card.Text></Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card className="justify-content-md-center dashboardCard">
+                        <Card.Body>
+                            <Card.Title></Card.Title>
+                            <Card.Text></Card.Text>
+                        </Card.Body>
+                    </Card>
+
+                    <aside className="dashboardAside">
+                        <Card className="justify-content-md-center dashboardCardUsuarios">
+                            <Card.Body>
+                                <Card.Title>Lista de usuarios</Card.Title>
+                                <Card.Text>Emaprosky: tanke</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </aside>
+                </div>
             </div>
 
             <Container>{showRender(content)}</Container>
