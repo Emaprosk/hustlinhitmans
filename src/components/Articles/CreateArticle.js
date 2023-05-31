@@ -5,11 +5,9 @@ import TextArea from "./Toolbar";
 import "../../Styles/Articulo.css";
 import { getItemUser } from "../../Hooks/HookUserStorage";
 import { toastInfo } from "../Alerts/Tostadas";
+import { URI_ARTICLE, URI_CATEGORY } from "../../config";
 
 //import "react-quill/dist/quill.snow.css";
-
-const URI = "http://localhost:3050/articles/";
-const URIC = "http://localhost:3050/cat/";
 
 const CompCreateArticle = () => {
     const [title, setTitle] = useState("");
@@ -25,7 +23,7 @@ const CompCreateArticle = () => {
             toastInfo("Debe seleccionar categoria");
         } else {
             try {
-                axios.post(URI, {
+                axios.post(URI_ARTICLE, {
                     tittle: title,
                     contenido: contenido,
                     category: category,
@@ -48,7 +46,7 @@ const CompCreateArticle = () => {
     }, []);
 
     const getCartegorias = async () => {
-        const res = await axios.get(URIC);
+        const res = await axios.get(URI_CATEGORY);
         setCategorias(res.data);
     };
 

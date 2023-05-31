@@ -5,14 +5,13 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "../../Styles/CategoryCards.css";
 import { Link } from "react-router-dom";
-
-const URI = "http://localhost:3050/cat/";
+import { URI_CATEGORY } from "../../config";
 
 const ShowCategories = () => {
     const [categorias, setCategorias] = useState([]);
 
     useEffect(() => {
-        axios.get(URI).then((res) => {
+        axios.get(URI_CATEGORY).then((res) => {
             setCategorias(res.data);
         });
     }, []);

@@ -4,8 +4,7 @@ import "../Styles/singUp.css";
 import { toastError, toastSuccess } from "../components/Alerts/Tostadas";
 import Pop from "../components/Popovers/Popovers";
 import CardInfo from "../components/CardInfo";
-
-const URI = "http://localhost:3050/users/";
+import { URI_USUARY } from "../config";
 
 const CompCreateUser = () => {
     const [user, setUser] = useState("");
@@ -18,7 +17,7 @@ const CompCreateUser = () => {
     const store = async (e) => {
         e.preventDefault();
         try {
-            const data = await axios.post(URI, {
+            const data = await axios.post(URI_USUARY, {
                 username: user,
                 password: password,
                 email: email,

@@ -1,6 +1,26 @@
 .dimNav {
     opacity: 80%;
+}
+.dimSubNav {
+    display: flex;
+    padding: auto;
+    background: rgba(0, 0, 0, 0.8);
     margin-bottom: 10vh;
+}
+.navLinkSubNav {
+    color: white;
+}
+.navLinkSubNav:hover {
+    color: orange;
+    background: black;
+    border-radius: 10px;
+    transition: 1s;
+}
+.navDropdown {
+    color: white;
+}
+.navDropdown:hover {
+    color: orange;
 }
 
 .margenIzq {

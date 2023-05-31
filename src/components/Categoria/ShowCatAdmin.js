@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "../../Styles/CategoryCards.css";
-
-const URI = "http://localhost:3050/cat/";
+import { URI_CATEGORY } from "../../config";
 
 const ShowCatAdmin = () => {
     const [categorias, setCategorias] = useState([]);
@@ -15,12 +14,12 @@ const ShowCatAdmin = () => {
     }, []);
 
     const getCartegorias = async () => {
-        const res = await axios.get(URI);
+        const res = await axios.get(URI_CATEGORY);
         setCategorias(res.data);
     };
 
     const deleteCartegorias = async (id) => {
-        await axios.delete(URI + id);
+        await axios.delete(URI_CATEGORY + id);
         getCartegorias();
     };
     return (

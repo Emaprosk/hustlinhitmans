@@ -1,11 +1,10 @@
 import axios from "axios";
 import { toastError } from "../components/Alerts/Tostadas";
-
-const URI = "http://localhost:3050/log/";
+import { URI_LOG } from "../config";
 
 export const Logger = async (credentials) => {
     try {
-        const { data } = await axios.post(URI, credentials);
+        const { data } = await axios.post(URI_LOG, credentials);
         return data;
     } catch (error) {
         toastError("Credenciales Incorrectas");

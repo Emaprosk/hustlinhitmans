@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import Tostada from "./components/Alerts/Toast";
 import Dashboard from "./Pages/Dashboard";
 import ShowArtCat from "./components/Articles/ShowArtsCat";
+
 /*import { useEffect, useState } from "react";
 import { getItemUser } from "./Hooks/HookUserStorage";
 const [isLogged, setIsLogged] = useState(null);
@@ -38,7 +39,7 @@ function App() {
                             <Route index element={<Home />} />
                             <Route path="/home" element={<Home />} />
                             <Route path="foro" element={<Foro />} />
-                            <Route path="login" element={<Login />} />;
+                            <Route path="login" element={<Login />} />
                             <Route
                                 path="/perfil/:username"
                                 element={<Perfil />}
@@ -65,6 +66,7 @@ function App() {
                                 element={<ShowArtCat />}
                             />
                             <Route path="dashboard" element={<Dashboard />} />
+
                             <Route
                                 path="*"
                                 element={<Navigate replace to="/" />}

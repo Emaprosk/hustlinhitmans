@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-const URI = "http://localhost:3050/users/";
+import { URI_USUARY } from "../config";
 
 const CompShowUser = () => {
     const [users, setUser] = useState([]);
@@ -11,12 +10,12 @@ const CompShowUser = () => {
     }, []);
 
     const getUsers = async () => {
-        const res = await axios.get(URI);
+        const res = await axios.get(URI_USUARY);
         setUser(res.data);
     };
 
     const deleteUsers = async (id) => {
-        await axios.delete(URI + id);
+        await axios.delete(URI_USUARY + id);
         getUsers();
     };
 

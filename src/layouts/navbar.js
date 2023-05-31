@@ -1,4 +1,4 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 import VideoPlayer from "../components/Play/videoplay";
 import HomePlayer from "../components/Play/homePlay";
@@ -99,6 +99,62 @@ const Navv = () => {
                         </Nav.Link>
                     </Nav>
                     {isLogged ? renderLogOut() : renderLogIn()}
+                </Navbar.Collapse>
+            </Navbar>
+            <Navbar expand="xl" variant="dark" className="dimSubNav">
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                        className="mx-auto my-2 my-lg-0"
+                        style={{ maxHeight: "100px" }}
+                        navbarScroll
+                    >
+                        <Nav.Link href="#action1" className="navLinkSubNav">
+                            Noticias
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Videos
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Guias
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Juegos
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Avances
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Trucos
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Random
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Hardware
+                        </Nav.Link>
+                        <Nav.Link href="#action2" className="navLinkSubNav">
+                            Comunidad
+                        </Nav.Link>
+                        <NavDropdown
+                            title="Clan"
+                            color="black"
+                            className="navDropdown"
+                        >
+                            <div className="contentDropdown">
+                                <NavDropdown.Item href="#action3" className="">
+                                    Miembros
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action4" className="">
+                                    Perfil Jugador
+                                </NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action5" className="">
+                                    Pelotón
+                                </NavDropdown.Item>
+                            </div>
+                        </NavDropdown>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
             <section>

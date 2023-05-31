@@ -4,8 +4,7 @@ import axios from "axios";
 import { toastError, toastInfo } from "../Alerts/Tostadas";
 
 import "../../Styles/CategoryCards.css";
-
-const URI = "http://localhost:3050/cat/";
+import { URI_CATEGORY } from "../../config";
 
 const AddCategory = () => {
     const [titulo, setTitulo] = useState("");
@@ -14,7 +13,7 @@ const AddCategory = () => {
     const add = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(URI, {
+            await axios.post(URI_CATEGORY, {
                 category: titulo,
                 img: imagen,
             });

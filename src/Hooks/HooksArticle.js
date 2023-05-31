@@ -1,10 +1,9 @@
 import axios from "axios";
-
-const URI = "http://localhost:3050/articles/";
+import { URI_ARTICLE } from "../config";
 
 export const GetArticleByID = async (id) => {
     try {
-        const res = await axios.get(URI + id);
+        const res = await axios.get(URI_ARTICLE + id);
         return res.data;
     } catch (error) {
         console.error(error);
@@ -13,7 +12,7 @@ export const GetArticleByID = async (id) => {
 
 export const GetAllArticles = async () => {
     try {
-        const res = await axios.get(URI);
+        const res = await axios.get(URI_ARTICLE);
         const modifyData = ajustarArreglo(res.data);
         return modifyData;
     } catch (error) {
@@ -52,7 +51,7 @@ const FormateDate = (date) => {
 
 export const UpdatedArticle = async (id, title, contenido, createdBy) => {
     try {
-        await axios.put(URI + id, {
+        await axios.put(URI_ARTICLE + id, {
             tittle: title,
             contenido: contenido,
             createdBy: createdBy,
@@ -66,7 +65,7 @@ export const UpdatedArticle = async (id, title, contenido, createdBy) => {
 
 export const DeleteArticle = async (id) => {
     try {
-        await axios.delete(URI + id);
+        await axios.delete(URI_ARTICLE + id);
         return true;
     } catch (error) {
         return false;

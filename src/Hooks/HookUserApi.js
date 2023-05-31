@@ -1,12 +1,10 @@
 import axios from "axios";
 import { toastSuccess, toastWarning } from "../components/Alerts/Tostadas";
-
-const URI = "http://localhost:3050/users/";
-const URI2 = "http://localhost:3050/log/";
+import { URI_LOG, URI_USUARY } from "../config";
 
 export const GetUserApi = async (token) => {
     try {
-        const res = await axios.post(URI2 + "gut", {
+        const res = await axios.post(URI_LOG + "gut", {
             token: token,
         });
         return res.data;
@@ -17,7 +15,7 @@ export const GetUserApi = async (token) => {
 
 export const UpdateUserApi = async (id, charactername) => {
     try {
-        const res = await axios.put(URI + id, {
+        const res = await axios.put(URI_USUARY + id, {
             charactername: charactername,
         });
         if (res.status === 200) {
@@ -32,7 +30,7 @@ export const UpdateUserApi = async (id, charactername) => {
 
 export const DeleteUserApi = async (id) => {
     try {
-        await axios.delete(URI + id);
+        await axios.delete(URI_USUARY + id);
         return true;
     } catch (error) {
         console.error(error);
@@ -42,7 +40,7 @@ export const DeleteUserApi = async (id) => {
 
 export const ChangePasswordApi = async (id, password, newPassword) => {
     try {
-        const res = await axios.put(URI2 + "cp", {
+        const res = await axios.put(URI_LOG + "cp", {
             id: id,
             password: password,
             newPassword: newPassword,

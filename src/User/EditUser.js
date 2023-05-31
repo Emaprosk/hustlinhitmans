@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
-const URI = "http://localhost:3050/users/";
+import { URI_USUARY } from "../config";
 
 const CompEditUser = () => {
     const [username, setUsername] = useState("");
@@ -16,7 +15,7 @@ const CompEditUser = () => {
 
     const update = async (e) => {
         e.preventDefault();
-        await axios.put(URI + id, {
+        await axios.put(URI_USUARY + id, {
             username: username,
             password: password,
             email: email,
@@ -30,7 +29,7 @@ const CompEditUser = () => {
     });
 
     const getUserById = async () => {
-        const res = await axios.get(URI + id);
+        const res = await axios.get(URI_USUARY + id);
         setUsername(res.data.username);
         setPassword(res.data.password);
         setEmail(res.data.email);
