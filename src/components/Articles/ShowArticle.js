@@ -27,6 +27,39 @@ const CompShowArticle = () => {
             
         }
     };*/
+    const renderMap = () => {
+        articles.map((article) => (
+            <ListGroupItem key={article.id} className="list-group">
+                <div className="contentListGroup">
+                    <Link
+                        to={"/article/" + article.id}
+                        className="linkArticle contentListGroup"
+                    >
+                        <Col>
+                            <h5>{article.tittle}</h5>
+                        </Col>
+                        <Col>
+                            <p>{article.category}</p>
+                        </Col>
+                        <Col>
+                            <p>{article.createdBy}</p>
+                        </Col>
+                        <Col>
+                            <p>{article.createdAt}</p>
+                        </Col>
+                        <Col>
+                            <p>{article.updatedAt}</p>
+                        </Col>
+                    </Link>
+                    <Options
+                        id={article.id}
+                        list={articles}
+                        setList={setArticle}
+                    />
+                </div>
+            </ListGroupItem>
+        ));
+    };
 
     return (
         <div className="container">
@@ -35,37 +68,11 @@ const CompShowArticle = () => {
             </Link>
 
             <ListGroup variant="flush">
-                {articles.map((article) => (
-                    <ListGroupItem key={article.id} className="list-group">
-                        <div className="contentListGroup">
-                            <Link
-                                to={"/article/" + article.id}
-                                className="linkArticle contentListGroup"
-                            >
-                                <Col>
-                                    <h5>{article.tittle}</h5>
-                                </Col>
-                                <Col>
-                                    <p>{article.category}</p>
-                                </Col>
-                                <Col>
-                                    <p>{article.createdBy}</p>
-                                </Col>
-                                <Col>
-                                    <p>{article.createdAt}</p>
-                                </Col>
-                                <Col>
-                                    <p>{article.updatedAt}</p>
-                                </Col>
-                            </Link>
-                            <Options
-                                id={article.id}
-                                list={articles}
-                                setList={setArticle}
-                            />
-                        </div>
-                    </ListGroupItem>
-                ))}
+                {articles ? (
+                    renderMap()
+                ) : (
+                    <h1 style={{ color: "white" }}>No data</h1>
+                )}
             </ListGroup>
         </div>
     );
